@@ -1,0 +1,4 @@
+vllm==0.8.2
+latex2sympy2 
+fire
+tensordict==0.7.2
