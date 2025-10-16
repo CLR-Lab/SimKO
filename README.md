@@ -25,7 +25,7 @@ python -m pip install flash-attn --no-build-isolation
 
 
 ## Training
-SimKO: specify `topk`, `mix_topk_coef` and `simko` in `run_qwen2.5-math-7b_SimKO.sh` to train the model with SimKO.
+SimKO: specify `topk`, `mix_topk_coef`, `tau` and `simko` in `run_qwen2.5-math-7b_SimKO.sh` to train the model with SimKO.
 ```
 bash run_qwen2.5-math-7b_SimKO.sh
 ```

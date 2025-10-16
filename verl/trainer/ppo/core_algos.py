@@ -326,7 +326,7 @@ def row_quantile_masked(x: torch.Tensor, mask: torch.Tensor, q: float, eps=1e-8)
     return torch.stack(qs, dim=0)  # [B]
 
 
-def compute_policy_loss_simko(old_log_prob, old_log_probs_topk, log_prob, topk_log_probs, entropy, advantages, eos_mask, cliprange, token_level_scores,max_token,mix_topk_coef=0.01):
+def compute_policy_loss_simko(old_log_prob, old_log_probs_topk, log_prob, topk_log_probs, entropy, advantages, eos_mask, cliprange, token_level_scores,max_token,mix_topk_coef=0.01,tau=1.0):
     """Adapted from https://github.com/huggingface/trl/blob/main/trl/trainer/ppo_trainer.py#L1122
 
     Args:
@@ -388,7 +388,7 @@ def compute_policy_loss_simko(old_log_prob, old_log_probs_topk, log_prob, topk_l
         eos_mask_bool = eos_mask
     eos_mask_bool = eos_mask_bool.to(has_label.device)
 
-    threshold = row_quantile_masked(entropy, eos_mask_bool, q=0.80) 
+    threshold = row_quantile_masked(entropy, eos_mask_bool, q=tau) 
     threshold = threshold.view(-1, 1)  
 
     w = (entropy > threshold).float()  

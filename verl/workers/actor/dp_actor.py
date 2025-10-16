@@ -400,6 +400,7 @@ class DataParallelPPOActor(BasePPOActor):
                                                                                     token_level_scores=token_level_scores,
                                                                                     max_token=max_token,
                                                                                     mix_topk_coef=self.config.mix_topk_coef,
+                                                                                    tau=self.config.tau,
                                                                                     )
                     else:
                         pg_loss, pg_clipfrac, ppo_kl = core_algos.compute_policy_loss(old_log_prob=old_log_prob,
