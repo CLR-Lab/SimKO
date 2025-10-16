@@ -21,6 +21,9 @@ python3 -m verl.trainer.main_ppo \
     data.filter_overlong_prompts=True \
     data.truncation='error' \
     actor_rollout_ref.model.path=$model_name \
+    actor_rollout_ref.actor.simko=True \
+    actor_rollout_ref.actor.top_k=3 \
+    actor_rollout_ref.actor.mix_topk_coef=0.01 \
     actor_rollout_ref.actor.optim.lr=$lr \
     actor_rollout_ref.actor.entropy_coeff=0 \
     actor_rollout_ref.model.use_remove_padding=True \

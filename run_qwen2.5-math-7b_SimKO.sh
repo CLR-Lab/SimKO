@@ -1,5 +1,5 @@
 export RAY_DEDUP_LOGS=0
-export CUDA_VISIBLE_DEVICES=1,2,6,7
+
 math_train_path=./data/math/train.parquet
 math_test_path=./data/math/test.parquet
 aime2025_test_path=./data/aime2025/test.parquet
@@ -15,13 +15,12 @@ python3 -m verl.trainer.main_ppo \
     algorithm.adv_estimator=grpo \
     data.train_files="$train_files" \
     data.val_files="$test_files" \
-    data.train_batch_size=32 \
+    data.train_batch_size=1024 \
     data.max_prompt_length=1024 \
     data.max_response_length=3072 \
     data.filter_overlong_prompts=True \
     data.truncation='error' \
     actor_rollout_ref.model.path=$model_name \
-    actor_rollout_ref.actor.argmaxctrl=True \
     actor_rollout_ref.actor.simko=True \
     actor_rollout_ref.actor.top_k=3 \
     actor_rollout_ref.actor.mix_topk_coef=0.01 \
@@ -32,7 +31,7 @@ python3 -m verl.trainer.main_ppo \
     actor_rollout_ref.actor.ppo_max_token_len_per_gpu=12000 \
     actor_rollout_ref.rollout.log_prob_max_token_len_per_gpu=12000 \
     actor_rollout_ref.ref.log_prob_max_token_len_per_gpu=12000 \
-    actor_rollout_ref.actor.ppo_mini_batch_size=32 \
+    actor_rollout_ref.actor.ppo_mini_batch_size=256 \
     actor_rollout_ref.actor.fsdp_config.param_offload=True \
     actor_rollout_ref.actor.fsdp_config.optimizer_offload=True \
     actor_rollout_ref.rollout.enforce_eager=False \
@@ -48,9 +47,9 @@ python3 -m verl.trainer.main_ppo \
     trainer.critic_warmup=0 \
     trainer.logger=['wandb','console'] \
     trainer.project_name='SimKO' \
-    trainer.n_gpus_per_node=4 \
+    trainer.n_gpus_per_node=8 \
     +trainer.val_before_train=False \
     trainer.nnodes=1 \
-    trainer.save_freq=50 \
-    trainer.test_freq=50 \
+    trainer.save_freq=7 \
+    trainer.test_freq=14 \
     trainer.total_epochs=20 $@ 

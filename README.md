@@ -2,15 +2,15 @@
 
 # SimKO: Simple Pass@K Policy Optimization
 
-[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2506.01347)
+[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)]()
 
 </div>
 
 ## News
-- **[2025/10/16]** We release our [paper]() and code. 🚀
+- **[2025/10/17]** We release our [paper]() and code. 🚀
 ## Quick Start
 ### Installation
-Our code is implemented based on [verl](https://github.com/volcengine/verl). We recommend to use docker image provided by verl, please refer to their [documents](https://verl.readthedocs.io/en/v0.2.x/start/install.html).
+
 
 Start from a custom environment:
 ```
@@ -27,7 +27,7 @@ python -m pip install flash-attn --no-build-isolation
 ## Training
 SimKO: specify `topk`, `mix_topk_coef` and `simko` in `run_qwen2.5-math-7b_SimKO.sh` to train the model with SimKO.
 ```
-bash run_qwen2.5-math-7b_psr_nsr.sh
+bash run_qwen2.5-math-7b_SimKO.sh
 ```
 
 GRPO
@@ -35,9 +35,11 @@ GRPO
 bash run_qwen2.5-math-7b_grpo.sh
 ```
 
+## Acknowledgement
+The code is based  on [RLVR-Decomposed](https://github.com/TianHongZXY/RLVR-Decomposed). 
 
 
- ## Citation
+## Citation
 
 If you find our paper or code useful, please consider cite our work:
 
