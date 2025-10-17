@@ -16,8 +16,7 @@
 
 ## Overview
 
-In reinforcement learning with verifiable rewards (RLVR) for language models, a significant yet often overlooked challenge is **probability over-concentration**. Traditional methods (e.g., GRPO) tend to concentrate gradients on a small subset of candidate outputs, which limits the exploration of diverse, high-quality solutions and leads to degraded performance on pass@K benchmarks.
-
+In reinforcement learning with verifiable rewards (RLVR) for language models, a significant  challenge is **probability over-concentration**. Traditional methods (e.g., GRPO) tend to concentrate gradients on a small subset of candidate outputs, which limits the exploration of diverse, high-quality solutions and leads to degraded performance on pass@K benchmarks.
 SimKO addresses this issue by employing an asymmetric approach. For verified-correct responses, it increases the probabilities of the top-K candidates, promoting a broader exploration of possible solutions. For verified-incorrect responses, SimKO applies stronger penalties to the top-1 candidate, discouraging over-concentration on incorrect paths. This asymmetric design is particularly effective at reducing over-concentration, especially at tokens with high entropy.
 Across a variety of math and logical-reasoning benchmarks, SimKO consistently improves pass@K performance across different values of K, offering a straightforward method to enhance exploration in RLVR.
 
