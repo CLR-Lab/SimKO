@@ -2,12 +2,12 @@
 
 # SimKO: Simple Pass@K Policy Optimization
 
-[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)]()
+[![Paper](https://img.shields.io/badge/paper-A42C25?style=for-the-badge&logo=arxiv&logoColor=white)](https://arxiv.org/abs/2510.14807)
 
 </div>
 
 ## News
-- **[2025/10/17]** We release our [paper]() and code. 🚀
+- **[2025/10/17]** We release our [paper](https://arxiv.org/abs/2510.14807) and code. 🚀
 ## Quick Start
 ### Installation
 
@@ -44,5 +44,13 @@ The code is based  on [RLVR-Decomposed](https://github.com/TianHongZXY/RLVR-Deco
 If you find our paper or code useful, please consider cite our work:
 
 ```bibtex
-
+@misc{peng2025simkosimplepasskpolicy,
+      title={SimKO: Simple Pass@K Policy Optimization}, 
+      author={Ruotian Peng and Yi Ren and Zhouliang Yu and Weiyang Liu and Yandong Wen},
+      year={2025},
+      eprint={2510.14807},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2510.14807}, 
+}
 ```
