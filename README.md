@@ -6,6 +6,23 @@
 
 </div>
 
+
+<div align="justify">
+  <img src="./images/teaser.png" alt="teaser image" width="820">
+  <br>
+  <sup><em>SimKO improves pass@K performance on math tasks  and logic tasks compared to GRPO, as shown in the plots (left and middle). The Figure on the right shows the k-th highest candidate probabilities averaged over the dataset. The SimKO-trained model exhibits a less concentrated probability distribution compared to GRPO.
+</em></sup>
+</div>
+
+## Overview
+
+In reinforcement learning with verifiable rewards (RLVR) for language models, a significant yet often overlooked challenge is **probability over-concentration**. Traditional methods (e.g., GRPO) tend to concentrate gradients on a small subset of candidate outputs, which limits the exploration of diverse, high-quality solutions and leads to degraded performance on pass@K benchmarks.
+
+SimKO addresses this issue by employing an asymmetric approach. For verified-correct responses, it increases the probabilities of the top-K candidates, promoting a broader exploration of possible solutions. For verified-incorrect responses, SimKO applies stronger penalties to the top-1 candidate, discouraging over-concentration on incorrect paths. This asymmetric design is particularly effective at reducing over-concentration, especially at tokens with high entropy.
+Across a variety of math and logical-reasoning benchmarks, SimKO consistently improves pass@K performance across different values of K, offering a straightforward method to enhance exploration in RLVR.
+
+For a comprehensive explanation, check out our [paper](https://arxiv.org/abs/2510.14807).
+
 ## News
 - **[2025/10/17]** We release our [paper](https://arxiv.org/abs/2510.14807) and code. 🚀
 ## Quick Start
@@ -44,13 +61,10 @@ The code is based  on [RLVR-Decomposed](https://github.com/TianHongZXY/RLVR-Deco
 If you find our paper or code useful, please consider cite our work:
 
 ```bibtex
-@misc{peng2025simkosimplepasskpolicy,
-      title={SimKO: Simple Pass@K Policy Optimization}, 
-      author={Ruotian Peng and Yi Ren and Zhouliang Yu and Weiyang Liu and Yandong Wen},
-      year={2025},
-      eprint={2510.14807},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI},
-      url={https://arxiv.org/abs/2510.14807}, 
-}
+@article{peng2025simko,
+    title={SimKO: Simple Pass@K Policy Optimization},
+    author={Peng, Ruotian and Ren, Yi and Yu, Zhouliang and Liu, Weiyang and Wen, Yandong},
+    journal={arXiv preprint arXiv:2510.14807},
+    year={2025}
+ }
 ```
