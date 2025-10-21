@@ -9,7 +9,7 @@ train_files="['$math_train_path']"
 test_files="['$math_test_path', '$aime2025_test_path', '$amc23_test_path']"
 kl_coef=0
 lr=1e-6
-model_name=/home/pengruotian/pretrain/DeepSeek-R1-Distill-Qwen-1.5B
+model_name=Qwen/Qwen2.5-Math-7B
 
 python3 -m verl.trainer.main_ppo \
     algorithm.adv_estimator=grpo \
